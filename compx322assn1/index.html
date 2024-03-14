@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="https://meyerweb.com/eric/tools/css/reset/reset200802.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    
+  </header>
+
+  <main>
+    <!-- My Topic -->
+    <div class="content">
+      <div>
+        <div>
+          <button onclick="fetchTheNewsApi()">fetch news by Frontend javascript</button>
+        </div>
+
+        <div>
+          <button onclick="fetchNewsFromPHP()">fetch news from PHP</button>
+        </div>
+      </div>
+
+      <!-- Current Topic -->
+      <div>
+        <div class="current-topic">
+          <div>
+            Current topics:
+          </div>
+          <!-- Select country -->
+          <div>
+            <div class="selected-country">
+              <div>
+                Selected country:
+              </div>
+              <div id="country-select">
+                <!-- locale select -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <ul id="current-topics">
+            <!-- current topics -->
+          </ul>
+        </div>
+        <!-- topic buttons -->
+        <div>
+          <button onclick="triggerAddTopicSection()">Add Topics</button>
+          <button onclick="triggerRemoveTopicSection()">Rmove Topics</button>
+        </div>
+      </div>
+      <!-- Add Tpoics Area -->
+      <section id="add-topics" class="hidden">
+        <ul >
+          <!-- Inactived topics -->
+        </ul>
+        <button onclick="addCheckedTopics()">Add</button>
+      </section>
+      <!-- Remove Topics Area -->
+      <section id="remove-topics" class="hidden">
+        <ul>
+          <!-- Actived topics -->
+        </ul>
+        <button onclick="removeCheckedTopics()">Remove</button>
+      </section>
+    </div>
+
+    <ul id="news_ul">
+      
+    </ul>
+  </main>
+
+  <div id="display-topic-news">
+    
+  </div>
+
+  <script src="/js/util.js"></script>
+  <script src="/js/event.js"></script>
+  <script src="/js/news.js"></script>
+  <script src="/js/topic.js"></script>
+  <script src="/js/index.js"></script>
+</body>
+</html>

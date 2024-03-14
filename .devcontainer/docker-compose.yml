@@ -1,0 +1,48 @@
+version: '3'
+
+services:
+  mysql:
+    container_name: compx322assn1_mysql
+    tty: true
+    build:
+      context: ./
+      dockerfile: mysql.Dockerfile
+    networks:
+      - compx322
+    # volumes:
+    #   - 'mysql:/var/lib/mysql'
+    #   - '../sql:/sql'
+
+  php:
+    container_name: compx322assn1_php
+    build: ./
+    user: "${UID}:${GID}"
+    tty: true
+    networks:
+      - compx322
+    volumes:
+      - 'php:/usr/local/lib/php/extensions/'
+      - '~/.ssh:/root/.ssh:ro'
+      - '..:/workspaces'
+
+  nginx:
+    container_name: compx322assn1_nginx
+    image: nginx:stable-alpine
+    tty: true
+    ports:
+      - "322:80"
+    depends_on:
+      - php
+    networks:
+      - compx322
+    volumes:
+      - './default.conf:/etc/nginx/conf.d/default.conf'
+      - '../compx322assn1:/workspaces/html'
+  
+networks:
+  compx322:
+    name: compx322
+    driver: bridge
+volumes:
+  php:
+    driver: local

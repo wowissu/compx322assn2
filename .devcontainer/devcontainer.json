@@ -1,0 +1,30 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/marcosgomesneto/bun-devcontainers/tree/main/src/basic-bun
+{
+  "name": "compx322",
+  // "dockerFile": "Dockerfile",
+  // "forwardPorts": [8080],
+  "dockerComposeFile": "docker-compose.yml",
+	"service": "php",
+  "workspaceFolder": "/workspaces",
+  // Configure tool-specific properties.
+  "customizations": {
+    // Configure properties specific to VS Code.
+    "vscode": {
+      // Add the IDs of extensions you want installed when the container is created.
+      "extensions": [
+				"mhutchie.git-graph",
+				"withfig.fig",
+				"esbenp.prettier-vscode",
+				"be5invis.toml",
+				"ms-azuretools.vscode-docker",
+				"ckolkman.vscode-postgres",
+				"mermade.openapi-lint",
+				"pomber.git-file-history",
+        "amiralizadeh9480.laravel-extra-intellisense",
+        "bmewburn.vscode-intelephense-client",
+        "xdebug.php-pack"
+      ]
+    }
+  }
+}
