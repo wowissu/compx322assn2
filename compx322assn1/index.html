@@ -1,89 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
 
-  <link rel="stylesheet" href="https://meyerweb.com/eric/tools/css/reset/reset200802.css">
-  <link rel="stylesheet" href="/css/style.css">
-</head>
-<body>
-  <header>
-    
-  </header>
+    <link rel="stylesheet" href="https://meyerweb.com/eric/tools/css/reset/reset200802.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="body-wrapper">
+      <header class="header">
+        <h1>Your News Headlines</h1>
+      </header>
 
-  <main>
-    <!-- My Topic -->
-    <div class="content">
-      <div>
-        <div>
-          <button onclick="fetchTheNewsApi()">fetch news by Frontend javascript</button>
-        </div>
-
-        <div>
-          <button onclick="fetchNewsFromPHP()">fetch news from PHP</button>
-        </div>
-      </div>
-
-      <!-- Current Topic -->
-      <div>
-        <div class="current-topic">
+      <main>
+        <!-- My Topic -->
+        <div class="content">
+          <!-- Current Topic -->
           <div>
-            Current topics:
-          </div>
-          <!-- Select country -->
-          <div>
-            <div class="selected-country">
+            <div class="current_topic">
+              <div class="actived_topic_header">Current topics:</div>
+              <!-- Select country -->
               <div>
-                Selected country:
-              </div>
-              <div id="country-select">
-                <!-- locale select -->
+                <div class="selected_country">
+                  <div>Selected country:</div>
+                  <div id="country_select">
+                    <!-- locale select -->
+                  </div>
+                </div>
               </div>
             </div>
+            <div>
+              <ul id="actived_topics">
+                <!-- current actived topics -->
+              </ul>
+            </div>
+            <!-- topic buttons -->
+            <div>
+              <button onclick="triggerAddTopicSection()">Add Topics</button>
+              <button onclick="triggerRemoveTopicSection()">Rmove Topics</button>
+            </div>
           </div>
+          <!-- Add Tpoics Area -->
+          <section id="add_topics" class="hidden">
+            <ul class="topic_ul">
+              <!-- Inactived topics -->
+            </ul>
+            <button onclick="addCheckedTopics()">Add</button>
+          </section>
+          <!-- Remove Topics Area -->
+          <section id="remove_topics" class="hidden">
+            <ul class="topic_ul">
+              <!-- Actived topics -->
+            </ul>
+            <button onclick="removeCheckedTopics()">Remove</button>
+          </section>
         </div>
-        <div>
-          <ul id="current-topics">
-            <!-- current topics -->
+
+        <div class="news">
+          <div>
+            <h2 id="news_topic">
+              <!-- Current selected topic  -->
+            </h2>
+          </div>
+          <ul id="news_ul">
+            <!-- news list should be here -->
           </ul>
         </div>
-        <!-- topic buttons -->
-        <div>
-          <button onclick="triggerAddTopicSection()">Add Topics</button>
-          <button onclick="triggerRemoveTopicSection()">Rmove Topics</button>
-        </div>
-      </div>
-      <!-- Add Tpoics Area -->
-      <section id="add-topics" class="hidden">
-        <ul >
-          <!-- Inactived topics -->
-        </ul>
-        <button onclick="addCheckedTopics()">Add</button>
-      </section>
-      <!-- Remove Topics Area -->
-      <section id="remove-topics" class="hidden">
-        <ul>
-          <!-- Actived topics -->
-        </ul>
-        <button onclick="removeCheckedTopics()">Remove</button>
-      </section>
+      </main>
     </div>
 
-    <ul id="news_ul">
-      
-    </ul>
-  </main>
-
-  <div id="display-topic-news">
-    
-  </div>
-
-  <script src="/js/util.js"></script>
-  <script src="/js/event.js"></script>
-  <script src="/js/news.js"></script>
-  <script src="/js/topic.js"></script>
-  <script src="/js/index.js"></script>
-</body>
+    <script type="module" src="/js/index.js"></script>
+  </body>
 </html>
