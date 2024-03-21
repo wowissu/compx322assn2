@@ -16,7 +16,6 @@ export function useNewsListRender(appendTo) {
    * @param {import('./services/news.service.js').News[]} news
    */
   function render(news) {
-    console.log(news);
     const ul = document.querySelector(appendTo);
     // clean
     clean();
@@ -54,13 +53,29 @@ export function useNewsListRender(appendTo) {
         return li;
       })
     );
+  }
 
-    //
+  /**
+   * show loading
+   * @return {Function} clear loading
+   */
+  function showLoading() {
+    console.log('showLoading');
+    const ul = document.querySelector(appendTo);
+    const loadingSpan = document.createElement('span');
+
+    loadingSpan.append('Loading...');
+    ul.append(loadingSpan);
+
+    return () => {
+      ul.removeChild(loadingSpan);
+    };
   }
 
   return {
     render,
     clean,
+    showLoading,
   };
 }
 

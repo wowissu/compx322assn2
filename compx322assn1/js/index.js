@@ -45,20 +45,27 @@ window.onload = function init() {
 
 /**  */
 async function renderNewsHandler() {
-  // news header
-  newsHeader.render();
-
   // clean news list
   newsList.clean();
-  // fetch news
-  const res = await newsService.fetchNews();
-  // do nothing if there no data return or a failed response.
-  if (!res) {
-    return;
-  }
+  // news header
+  newsHeader.render();
+  // show loading UI
+  const stopLoading = newsList.showLoading();
 
-  const json = await res.json();
-  newsList.render(json.data);
+  try {
+    // fetch news
+    const res = await newsService.fetchNews();
+    // do nothing if there no data return or a failed response.
+    if (!res) {
+      return;
+    }
+
+    const json = await res.json();
+
+    newsList.render(json.data);
+  } finally {
+    stopLoading();
+  }
 }
 
 /**

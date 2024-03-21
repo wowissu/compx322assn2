@@ -69,7 +69,7 @@ export const useTopicService = useScope(function () {
    * @returns {Topic[]}
    */
   function getActivedTopics() {
-    return topics.filter((t) => t.active === 1);
+    return topics.filter((t) => t.active === '1');
   }
 
   /**
@@ -77,7 +77,7 @@ export const useTopicService = useScope(function () {
    * @returns {Topic[]}
    */
   function getInactivedTopics() {
-    return topics.filter((t) => t.active === 0);
+    return topics.filter((t) => t.active === '0');
   }
 
   function parse(responseData) {

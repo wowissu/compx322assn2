@@ -9,7 +9,7 @@ function main (PDO $db) {
 
   foreach ($topic_ids as $_key => $id) {
     $q->execute([
-      "active" => 0,
+      "active" => "0",
       "id" => $id
     ]);
   }

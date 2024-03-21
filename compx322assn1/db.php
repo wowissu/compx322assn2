@@ -21,6 +21,7 @@ class DBconnection {
   public function connect() {
     try {
       $this->db = new PDO("mysql:host={$this->host};dbname={$this->database}", $this->username, $this->password);
+      $this->db->setAttribute(PDO::ATTR_STRINGIFY_FETCHES, true);
       $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);    
     } catch(PDOException $e) {
       http_response_code(500);
