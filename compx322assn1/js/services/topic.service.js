@@ -48,7 +48,7 @@ export const useTopicService = useScope(function () {
       },
     };
 
-    return fetch('/updateActiveTopics.php', fetchRequestInit);
+    return fetch('./updateActiveTopics.php', fetchRequestInit);
   }
 
   function updateInactiveTopics(topic_ids) {
@@ -61,7 +61,7 @@ export const useTopicService = useScope(function () {
       },
     };
 
-    return fetch('/updateInactiveTopics.php', fetchRequestInit);
+    return fetch('./updateInactiveTopics.php', fetchRequestInit);
   }
 
   /**
