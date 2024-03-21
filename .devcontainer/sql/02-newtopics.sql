@@ -11,9 +11,7 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-CREATE USER IF NOT EXISTS 'compx322assn1_user'@'localhost' IDENTIFIED WITH mysql_native_password BY '';
-CREATE USER IF NOT EXISTS 'compx322assn1_user'@'%' IDENTIFIED WITH mysql_native_password BY '';
-GRANT ALL PRIVILEGES ON compx322assn1_db.* TO compx322assn1_user;
+USE `zs284`;
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -25,8 +23,6 @@ GRANT ALL PRIVILEGES ON compx322assn1_db.* TO compx322assn1_user;
 --
 
 -- --------------------------------------------------------
-
-USE `compx322assn1_db`;
 
 --
 -- Table structure for table `newtopics`

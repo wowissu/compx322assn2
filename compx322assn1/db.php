@@ -2,9 +2,9 @@
 
 class DBconnection {
   private $servername = "mysql";
-  private $database = "compx322assn1_db";
-  private $username = "compx322assn1_user";
-  private $password = "";
+  private $database = "zs284";
+  private $username = "zs284";
+  private $password = "my525041sql";
   public PDO $db;
 
   public function connect() {

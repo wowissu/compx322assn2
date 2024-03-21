@@ -1,0 +1,3 @@
+CREATE USER IF NOT EXISTS 'zs284'@'localhost' IDENTIFIED WITH mysql_native_password BY 'my525041sql';
+CREATE USER IF NOT EXISTS 'zs284'@'%' IDENTIFIED WITH mysql_native_password BY 'my525041sql';
+GRANT ALL PRIVILEGES ON zs284.* TO zs284;
