@@ -60,7 +60,6 @@ export function useNewsListRender(appendTo) {
    * @return {Function} clear loading
    */
   function showLoading() {
-    console.log('showLoading');
     const ul = document.querySelector(appendTo);
     const loadingSpan = document.createElement('span');
 

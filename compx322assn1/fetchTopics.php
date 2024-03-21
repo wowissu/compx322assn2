@@ -1,7 +1,7 @@
 <?php
 
-require_once 'db.php';
-require_once 'http.php';
+require_once './db.php';
+require_once './http.php';
 
 function main (PDO $db) {
   header("Content-Type: application/json");

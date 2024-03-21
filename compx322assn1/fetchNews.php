@@ -1,6 +1,6 @@
 <?php
 
-require_once 'http.php';
+require_once './http.php';
 
 function main () {
   header("Content-Type: application/json");
