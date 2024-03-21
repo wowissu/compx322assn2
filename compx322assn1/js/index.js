@@ -21,9 +21,10 @@ const removeTopic = useRemoveTopics('#remove_topics');
 /** app entry */
 window.onload = function init() {
   /** fetch Topics and render them. */
-  topicService.fetchTopics().then(() => {
+  (async () => {
+    await topicService.fetchTopics();
     currentTopics.render();
-  });
+  })();
 
   /** render locale select */
   localeSelect.render();
@@ -43,26 +44,21 @@ window.onload = function init() {
 };
 
 /**  */
-function renderNewsHandler() {
+async function renderNewsHandler() {
   // news header
   newsHeader.render();
 
   // clean news list
   newsList.clean();
   // fetch news
-  return newsService
-    .fetchNews()
-    .then((res) => {
-      // do nothing if there no data return or a failed response.
-      if (!res) {
-        return;
-      }
+  const res = await newsService.fetchNews();
+  // do nothing if there no data return or a failed response.
+  if (!res) {
+    return;
+  }
 
-      return res.json();
-    })
-    .then((json) => {
-      newsList.render(json.data);
-    });
+  const json = await res.json();
+  newsList.render(json.data);
 }
 
 /**
@@ -84,19 +80,17 @@ function triggerRemoveTopicSection() {
 /**
  * To add selecte d topics
  */
-function addCheckedTopics() {
-  return addTopic.submit().then(() => {
-    e.dispatchEvent(e.ON_TOPICS_ACTIVE_CHANGE);
-  });
+async function addCheckedTopics() {
+  await addTopic.submit();
+  e.dispatchEvent(e.ON_TOPICS_ACTIVE_CHANGE);
 }
 
 /**
  * To remove selected topics
  */
-function removeCheckedTopics() {
-  removeTopic.submit().then(() => {
-    e.dispatchEvent(e.ON_TOPICS_ACTIVE_CHANGE);
-  });
+async function removeCheckedTopics() {
+  await removeTopic.submit();
+  e.dispatchEvent(e.ON_TOPICS_ACTIVE_CHANGE);
 }
 
 /** for global accessing */

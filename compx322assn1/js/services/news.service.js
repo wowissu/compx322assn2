@@ -23,7 +23,7 @@ export const useNewsService = useScope(() => {
    * Fetch data from thenewsapi.com
    * @return {Promise<Response|undefined>}
    */
-  function fetchNews() {
+  async function fetchNews() {
     // return mockFetch();
 
     const currentTopic = ts.getCurrentTopic();
@@ -64,7 +64,7 @@ export const useNewsService = useScope(() => {
 });
 
 /** dev only - for mock fetch response */
-function mockFetch() {
+async function mockFetch() {
   const data = {
     meta: {
       found: 73093,
@@ -121,9 +121,9 @@ function mockFetch() {
     ],
   };
 
-  return Promise.resolve({
-    json: Promise.resolve(() => {
+  return {
+    async json() {
       return data;
-    }),
-  });
+    },
+  };
 }
