@@ -15,7 +15,7 @@ class DBconnection {
 
   public function __construct()
   {
-    $this->host = is_null(getenv("HOST")) ? $this->host : getenv("HOST");
+    $this->host = getenv("HOST") ?: $this->host;
   }
 
   public function connect() {
