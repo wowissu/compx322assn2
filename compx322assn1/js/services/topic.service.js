@@ -41,7 +41,7 @@ export const useTopicService = useScope(function () {
   function updateActiveTopics(topic_ids) {
     /** @type {RequestInit} */
     const fetchRequestInit = {
-      method: 'put',
+      method: 'post',
       body: JSON.stringify(topic_ids),
       headers: {
         'Content-Type': 'application/json',
@@ -54,7 +54,7 @@ export const useTopicService = useScope(function () {
   function updateInactiveTopics(topic_ids) {
     /** @type {RequestInit} */
     const fetchRequestInit = {
-      method: 'put',
+      method: 'post',
       body: JSON.stringify(topic_ids),
       headers: {
         'Content-Type': 'application/json',
