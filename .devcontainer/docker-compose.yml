@@ -17,6 +17,8 @@ services:
     container_name: compx322assn1_php
     build: ./
     user: "${UID}:${GID}"
+    environment:
+      - HOST=mysql
     tty: true
     networks:
       - compx322
