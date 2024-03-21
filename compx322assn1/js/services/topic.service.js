@@ -27,7 +27,7 @@ export const useTopicService = useScope(function () {
   let currentTopic = null;
 
   function fetchTopics() {
-    return fetch('/fetchTopics.php').then((res) => {
+    return fetch('./fetchTopics.php').then((res) => {
       return res
         .json()
         .then((rawData) => parse(rawData))
