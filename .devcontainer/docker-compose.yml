@@ -23,7 +23,6 @@ services:
     networks:
       - compx322
     volumes:
-      - "php:/usr/local/lib/php/extensions/"
       - "~/.ssh:/root/.ssh:ro"
       - "..:/workspaces"
 
@@ -45,6 +44,3 @@ networks:
   compx322:
     name: compx322
     driver: bridge
-volumes:
-  php:
-    driver: local

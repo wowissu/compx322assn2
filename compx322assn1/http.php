@@ -41,7 +41,7 @@ class Response {
   const ERROR = "error";
 
   public static function toJson($data, $status = Response::OK) {
-    header("Content-Type", "application/json");
+    header("Content-Type: application/json");
 
     if ($status === Response::ERROR) {
       http_response_code(401);

@@ -1,6 +1,8 @@
 <?php
 
-
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
 
 class DBconnection {
 
@@ -9,11 +11,11 @@ class DBconnection {
   private $username = "zs284";
   private $password = "my525041sql";  
 
-  public PDO $db;
+  public $db;
 
   public function __construct()
   {
-    $this->host = getenv("HOST") ?: $this->host;
+    $this->host = is_null(getenv("HOST")) ? $this->host : getenv("HOST");
   }
 
   public function connect() {

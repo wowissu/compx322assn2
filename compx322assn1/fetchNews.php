@@ -1,9 +1,9 @@
 <?php
 
-require 'http.php';
+require_once 'http.php';
 
 function main () {
-  header("Content-Type", "application/json");
+  header("Content-Type: application/json");
 
   $request = Request::json();
   

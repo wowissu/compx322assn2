@@ -1,10 +1,10 @@
 <?php
 
-require 'db.php';
-require 'http.php';
+require_once 'db.php';
+require_once 'http.php';
 
 function main (PDO $db) {
-  header("Content-Type", "application/json");
+  header("Content-Type: application/json");
 
   $stmt = $db->query("SELECT * FROM newtopics;");
   $topics = $stmt->fetchAll(PDO::FETCH_ASSOC);

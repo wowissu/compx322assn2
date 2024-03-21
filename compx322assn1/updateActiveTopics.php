@@ -1,7 +1,7 @@
 <?php
 
-require 'db.php';
-require 'http.php';
+require_once 'db.php';
+require_once 'http.php';
 
 function main (PDO $db) {
   $topic_ids = Request::json();
