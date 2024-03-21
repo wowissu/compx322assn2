@@ -15,7 +15,7 @@ export function uselocaleSelect(appendTo) {
 
     emptyElement(parent).appendChild(select);
 
-    select.addEventListener('change', async (event) => {
+    select.addEventListener('change', (event) => {
       // set locale
       ls.setCurrentLocale(event.target.value);
     });

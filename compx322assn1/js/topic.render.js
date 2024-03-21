@@ -76,7 +76,7 @@ export function useAddTopic(appendTo) {
     });
   }
 
-  async function submit() {
+  function submit() {
     const checkboxNodeList = document.querySelectorAll(`${appendTo} > ul input:checked`);
 
     if (!checkboxNodeList.length) return;
@@ -84,8 +84,9 @@ export function useAddTopic(appendTo) {
     const checkboxs = Array.apply(null, checkboxNodeList);
     const ids = checkboxs.map((c) => c.value);
 
-    await ts.updateActiveTopics(ids);
-    await ts.fetchTopics();
+    ts.updateActiveTopics(ids).then(() => {
+      ts.fetchTopics();
+    });
   }
 
   return {
@@ -139,7 +140,7 @@ export function useRemoveTopics(appendTo) {
     });
   }
 
-  async function submit() {
+  function submit() {
     const checkboxNodeList = document.querySelectorAll(`${appendTo} > ul input:checked`);
 
     if (!checkboxNodeList.length) return;
@@ -147,8 +148,9 @@ export function useRemoveTopics(appendTo) {
     const checkboxs = Array.apply(null, checkboxNodeList);
     const ids = checkboxs.map((c) => c.value);
 
-    await topicService.updateInactiveTopics(ids);
-    await topicService.fetchTopics();
+    topicService.updateInactiveTopics(ids).then(() => {
+      topicService.fetchTopics();
+    });
   }
 
   return {
