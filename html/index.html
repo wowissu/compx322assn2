@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <link rel="stylesheet" href="https://meyerweb.com/eric/tools/css/reset/reset200802.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container-1280">
+        <h1>Towns and Weather Graphs</h1>
+      </div>
+    </header>
+    <div class="container-1280 pt-4 pb-24">
+      <div class="space-y-4">
+        <!-- Graph Canvas -->
+        <div class="canvas-wraper">
+          <canvas id="graph-canvas"></canvas>
+        </div>
+
+        <!-- Show Comparison Graph Button -->
+        <div class="flex flex-nowrap">
+          <button id="show-comparison-button" type="button" class="btn">Show Comparison Graph</button>
+          <div class="flex" id="comparison-list">
+            <div ref="list" class="flex ml-4">
+              <div class="flex items-center me-4" template="town-checkbox">
+                <input ref="input" type="checkbox" value="" class="town-checkbox" />
+                <label ref="label" class="town-checkbox-label"></label>
+              </div>
+            </div>
+            <div>
+              <button type="button" class="btn" ref="go">Go</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add Town to Widget -->
+        <div class="max-w-sm">
+          <label for="towns" class="town-select-label">Add Town to Widget</label>
+
+          <div id="town-select">
+            <select class="town-select" template="town-select">
+              <option selected>Choose a town</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Selected Towns -->
+        <div id="town-list" class="town-list grid gap-4 grid-cols-3">
+          <!-- Town Card -->
+          <div class="town flex flex-col justify-between" template="town-card">
+            <div class="space-y-2">
+              <h5 class="town-title" ref="name"></h5>
+              <span ref="engname"></span>
+
+              <p class="town-info" ref="info"></p>
+            </div>
+            <div class="flex justify-between space-x-2">
+              <!-- Remove Town -->
+              <a class="btn btn--error" ref="remove">
+                <svg class="btn-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    fill-rule="evenodd"
+                    d="M8.586 2.586A2 2 0 0 1 10 2h4a2 2 0 0 1 2 2v2h3a1 1 0 1 1 0 2v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V8a1 1 0 0 1 0-2h3V4a2 2 0 0 1 .586-1.414ZM10 6h4V4h-4v2Zm1 4a1 1 0 1 0-2 0v8a1 1 0 1 0 2 0v-8Zm4 0a1 1 0 1 0-2 0v8a1 1 0 1 0 2 0v-8Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+              <!-- Show Town's graph -->
+              <a class="btn" ref="show">
+                Show graph
+                <svg class="btn-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./js/index.js"></script>
+  </body>
+</html>
