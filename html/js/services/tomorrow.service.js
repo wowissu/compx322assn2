@@ -21,10 +21,10 @@ export class TomorrowService {
    * @returns {Promise<Object>} A promise that resolves with the fetched weather data.
    */
   async fetch(town) {
-    return this.#mock();
+    // return this.#mock();
 
     // Constructing the URL for the tomorrow.io API endpoint
-    const url = new URL('https://api.tomorrow.io/v4/weather/forecast');
+    const url = new URL('https://api.tomorrow.io/v4/weather/history/recent');
     url.searchParams.append('apikey', TomorrowService.API_KEY);
     url.searchParams.append('location', `${town.lat},${town.lon}`);
 

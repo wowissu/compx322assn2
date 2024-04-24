@@ -2,19 +2,24 @@ version: "3"
 
 services:
   mysql:
-    container_name: compx322assn1_mysql
+    container_name: compx322assn2_mysql
     tty: true
-    build:
-      context: ./
-      dockerfile: mysql.Dockerfile
+    image: mysql:latest
+    environment:
+      - MYSQL_DATABASE=zs284
+      - MYSQL_USER=zs284
+      - MYSQL_PASSWORD=my525041sql
+      - MYSQL_ALLOW_EMPTY_PASSWORD=1
+      - SERVICE_TAGS=dev
+      - SERVICE_NAME=mysql
     networks:
       - compx322
-    # volumes:
-    #   - 'mysql:/var/lib/mysql'
-    #   - '../sql:/sql'
+    volumes:
+      - "./sql:/docker-entrypoint-initdb.d"
+      - "sql:/var/lib/mysql"
 
   php:
-    container_name: compx322assn1_php
+    container_name: compx322assn2_php
     build: ./
     user: "${UID}:${GID}"
     environment:
@@ -27,7 +32,7 @@ services:
       - "..:/workspaces"
 
   nginx:
-    container_name: compx322assn1_nginx
+    container_name: compx322assn2_nginx
     image: nginx:stable-alpine
     tty: true
     ports:
@@ -38,9 +43,13 @@ services:
       - compx322
     volumes:
       - "./default.conf:/etc/nginx/conf.d/default.conf"
-      - "../compx322assn1:/workspaces/compx322assn1"
+      - "../html:/workspaces/html"
 
 networks:
   compx322:
     name: compx322
     driver: bridge
+
+volumes:
+  sql:
+    driver: local

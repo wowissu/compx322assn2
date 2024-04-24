@@ -27,13 +27,17 @@ export class TownGraph {
     const labels = firstTown.hourly.map((h) => {
       const d = new Date(h.time);
 
+      console.log(d);
+
       return `${('0' + d.getHours()).slice(-2)}:${('0' + d.getMinutes()).slice(-2)}`;
     });
 
     const datasets = towns.map((town) => {
       return {
         label: town.name,
-        data: town.hourly.map((h) => h.values.temperature),
+        data: town.hourly.map((h) => {
+          return h.values.temperature;
+        }),
         borderWidth: 1,
       };
     });
