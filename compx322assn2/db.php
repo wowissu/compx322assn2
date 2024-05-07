@@ -8,8 +8,8 @@ error_reporting(E_ALL);
 class DBconnection {
 
   // Database connection parameters
-  // private $host = "learn-mysql.cms.waikato.ac.nz";
-  private $host = "mysql";          // Default host
+  private $host = "learn-mysql.cms.waikato.ac.nz";
+  // private $host = "mysql";          // Default host
   private $database = "zs284";      // Database name
   private $username = "zs284";      // Username
   private $password = "my525041sql"; // Password  
